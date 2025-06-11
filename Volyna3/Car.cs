@@ -19,5 +19,14 @@ namespace Volyna3
         {
             return $"Car: {properties["Price"]}$, Speed: {properties["Speed"]}km/h, Year: {properties["Year"]}";
         }
+
+        public override object Clone()
+        {
+            var clone = new Car();
+            foreach (var kvp in properties)
+                clone[kvp.Key] = kvp.Value;
+            return clone;
+        }
+
     }
 }

@@ -50,6 +50,7 @@
             btnSortVehiclesQueue = new Button();
             btnCloneSelectedQueue = new Button();
             Queue = new Label();
+            label1 = new Label();
             SuspendLayout();
             // 
             // comboBoxType
@@ -106,9 +107,9 @@
             // 
             // buttonCreate
             // 
-            buttonCreate.Location = new Point(12, 247);
+            buttonCreate.Location = new Point(12, 236);
             buttonCreate.Name = "buttonCreate";
-            buttonCreate.Size = new Size(94, 29);
+            buttonCreate.Size = new Size(421, 29);
             buttonCreate.TabIndex = 7;
             buttonCreate.Text = "Create";
             buttonCreate.UseVisualStyleBackColor = true;
@@ -196,7 +197,7 @@
             // 
             // btnCloneSelected
             // 
-            btnCloneSelected.Location = new Point(12, 282);
+            btnCloneSelected.Location = new Point(12, 317);
             btnCloneSelected.Name = "btnCloneSelected";
             btnCloneSelected.Size = new Size(94, 29);
             btnCloneSelected.TabIndex = 18;
@@ -206,7 +207,7 @@
             // 
             // btnSortVehicles
             // 
-            btnSortVehicles.Location = new Point(12, 317);
+            btnSortVehicles.Location = new Point(12, 352);
             btnSortVehicles.Name = "btnSortVehicles";
             btnSortVehicles.Size = new Size(94, 29);
             btnSortVehicles.TabIndex = 19;
@@ -216,7 +217,7 @@
             // 
             // btnSortVehiclesQueue
             // 
-            btnSortVehiclesQueue.Location = new Point(308, 317);
+            btnSortVehiclesQueue.Location = new Point(308, 352);
             btnSortVehiclesQueue.Name = "btnSortVehiclesQueue";
             btnSortVehiclesQueue.Size = new Size(94, 29);
             btnSortVehiclesQueue.TabIndex = 21;
@@ -226,7 +227,7 @@
             // 
             // btnCloneSelectedQueue
             // 
-            btnCloneSelectedQueue.Location = new Point(308, 282);
+            btnCloneSelectedQueue.Location = new Point(308, 317);
             btnCloneSelectedQueue.Name = "btnCloneSelectedQueue";
             btnCloneSelectedQueue.Size = new Size(94, 29);
             btnCloneSelectedQueue.TabIndex = 20;
@@ -238,17 +239,28 @@
             // 
             Queue.AutoSize = true;
             Queue.Font = new Font("Algerian", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Queue.Location = new Point(308, 251);
+            Queue.Location = new Point(308, 286);
             Queue.Name = "Queue";
             Queue.Size = new Size(95, 25);
             Queue.TabIndex = 22;
             Queue.Text = "Queue:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Algerian", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(12, 286);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 25);
+            label1.TabIndex = 23;
+            label1.Text = "List:";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1545, 411);
+            Controls.Add(label1);
             Controls.Add(Queue);
             Controls.Add(btnSortVehiclesQueue);
             Controls.Add(btnCloneSelectedQueue);
@@ -305,5 +317,6 @@
         private Button btnSortVehiclesQueue;
         private Button btnCloneSelectedQueue;
         private Label Queue;
+        private Label label1;
     }
 }

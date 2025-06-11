@@ -22,5 +22,20 @@ namespace Volyna3
             return $"Plane: {properties["Price"]}$, Speed: {properties["Speed"]}km/h, Year: {properties["Year"]}, " +
                    $"Height: {properties["Height"]}m, Passengers: {properties["Passengers"]}";
         }
+
+        public override object Clone()
+        {
+            var clone = new Plane();
+            foreach (var kvp in properties)
+                clone[kvp.Key] = kvp.Value;
+            return clone;
+        }
+
+        public override string ToString()
+        {
+            return GetInfo();
+        }
+
+
     }
 }

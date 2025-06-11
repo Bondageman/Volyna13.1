@@ -1,9 +1,13 @@
-namespace Volyna3
+﻿namespace Volyna3
 {
     public partial class Form1 : Form
     {
         Vehicle currentVehicle;
         private List<Vehicle> vehicleList = new List<Vehicle>();
+        private Queue<Vehicle> vehicleQueue = new Queue<Vehicle>();
+        private VehicleCollection vehicles = new VehicleCollection();
+
+
 
         public Form1()
         {
@@ -16,6 +20,16 @@ namespace Volyna3
         {
 
         }
+
+        private void UpdateQueueListBox()
+        {
+            listBox1.Items.Clear();
+            foreach (var v in vehicles.GetVehicles())
+            {
+                listBox1.Items.Add(v.ToString()); // або $"{v.GetType().Name}: {v.Model}"
+            }
+        }
+
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
@@ -214,7 +228,7 @@ namespace Volyna3
                 }
                 else
                 {
-                    MessageBox.Show("г� �� ���� �� 1900 � 2025.", "Error.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Рік має бути між 1900 і 2025.", "Error.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     allOK = false;
 
                 }
@@ -235,6 +249,10 @@ namespace Volyna3
                 {
                     vehicleList.Add(currentVehicle);
                     listBoxOutput.Items.Add(currentVehicle.GetInfo());
+                    vehicleQueue.Enqueue(currentVehicle);
+                    UpdateQueueListBox();
+                    vehicles.AddVehicle(currentVehicle);
+                    UpdateQueueListBox();
                 }
                 else
                     MessageBox.Show("No vehicle created.");
@@ -317,12 +335,29 @@ namespace Volyna3
 
         private void btnCloneSelectedQueue_Click(object sender, EventArgs e)
         {
-
+            if (listBox1.SelectedIndex >= 0)
+            {
+                vehicles.CloneSelected(listBox1.SelectedIndex);
+                MessageBox.Show("Клоновано вибраний елемент.");
+                UpdateQueueListBox(); // 
+            }
+            else
+            {
+                MessageBox.Show("Виберіть елемент для клонування.");
+            }
+            int selectedIndex = listBox1.SelectedIndex;
+            vehicles.CloneSelected(selectedIndex);
+            UpdateQueueListBox();
         }
 
         private void btnSortVehiclesQueue_Click(object sender, EventArgs e)
         {
-
+            UpdateQueueListBox(); //
+            MessageBox.Show("Чергу відсортовано.");
+            vehicles.SortQueueByPrice();
+            UpdateQueueListBox();
         }
+
+
     }
 }
